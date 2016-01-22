@@ -1,0 +1,6 @@
+---
+- include: absent.yml
+  when: slack_notify_ssh_state == "absent"
+
+- include: present.yml
+  when: slack_notify_ssh_state == "present"

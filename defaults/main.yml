@@ -1,0 +1,4 @@
+slack_notify_ssh_state: "present"
+slack_notify_ssh_webhook_url: ""
+slack_notify_ssh_channel: "#general"
+slack_notify_ssh_bot_name: "ssh-bot"

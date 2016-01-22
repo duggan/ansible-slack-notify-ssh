@@ -1,0 +1,6 @@
+---
+- name: Remove Slack notification script for SSH
+  file: dest=/etc/ssh/notify.sh state=absent
+
+- name: Remove notification from login hook
+  lineinfile: dest=/etc/pam.d/sshd line="session optional pam_exec.so seteuid /etc/ssh/notify.sh" state=absent

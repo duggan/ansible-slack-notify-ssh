@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ "$PAM_TYPE" != "close_session" ]; then
+        url="{{ slack_notify_ssh_webhook_url }}"
+        channel="{{ slack_notify_ssh_channel }}"
+        host="`hostname`"
+    content="\"attachments\": [ { \"mrkdwn_in\": [\"text\", \"fallback\"], \"fallback\": \"SSH login: $PAM_USER connected to \`$host\`\", \"text\": \"SSH login to \`$host\`\", \"fields\": [ { \"title\": \"User\", \"value\": \"$PAM_USER\", \"short\": true }, { \"title\": \"IP Address\", \"value\": \"$PAM_RHOST\", \"short\": true } ], \"color\": \"#F35A00\" } ]"
+    curl -X POST --data-urlencode "payload={\"channel\": \"$channel\", \"mrkdwn\": true, \"username\": \"{{ slack_notify_ssh_bot_name }}\", $content, \"icon_emoji\": \":computer:\"}" $url &
+fi

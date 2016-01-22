@@ -1,0 +1,7 @@
+---
+- name: Create Slack notification script for SSH
+  template: src=ssh-notify.j2 dest=/etc/ssh/notify.sh
+    owner="root" group="root" mode=0700
+
+- name: Add notification to login hook
+  lineinfile: dest=/etc/pam.d/sshd line="session optional pam_exec.so seteuid /etc/ssh/notify.sh"
