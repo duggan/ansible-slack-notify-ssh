@@ -35,7 +35,7 @@ Run, and test it out!
 
 To remove:
 
-```
+```yml
 - name: Remove Slack SSH login notifications
   vars:
     hosts: all
