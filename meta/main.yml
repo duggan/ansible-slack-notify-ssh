@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: 'Ross Duggan'
+  description: Post successful SSH logins to Slack 
+  license: Apache2
+  min_ansible_version: 1.2
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - quantal
+        - raring
+        - saucy
+        - trusty
+    - name: EL
+      versions:
+        - 6
+        - 5
+  categories:
+    - monitoring
+    - security
+dependencies: []
+
